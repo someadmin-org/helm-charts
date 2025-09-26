@@ -1,6 +1,6 @@
 # someadmin
 
-This is a the central repository for someadmin Helm Charts
+This is a the central repository for someadmin Helm Charts.
 
 ## Usage
 

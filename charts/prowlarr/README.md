@@ -64,7 +64,7 @@ Kubernetes: `>=1.19.0-0`
 | securityContext | object | `{}` |  |
 | service.annotations | object | `{}` |  |
 | service.labels | object | `{}` |  |
-| service.port | int | `8080` |  |
+| service.port | int | `9696` |  |
 | service.type | string | `"ClusterIP"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.automount | bool | `true` |  |

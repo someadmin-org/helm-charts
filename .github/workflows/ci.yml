@@ -1,7 +1,6 @@
 name: Lint, test and release Helm charts
 
 on:
-  pull_request:
   push:
 
 permissions:
@@ -34,6 +33,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request' || github.base_ref == github.head_ref
     steps:
       - uses: actions/checkout@v4
         with: { fetch-depth: 0 }
@@ -72,6 +72,7 @@ jobs:
 
   release:
     runs-on: ubuntu-latest
+    if: github.branch == "main"
     steps:
       - name: Checkout
         uses: actions/checkout@v2

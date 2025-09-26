@@ -94,6 +94,14 @@ jobs:
         run: |
           set -e
           shopt -s nullglob
+
+          mkdir -p dist
+          for d in charts/*; do
+            [[ -f "$d/Chart.yaml" ]] || continue
+            echo "==> helm package $d"
+            helm package "$d" -d dist
+          done
+
           for tgz in dist/*.tgz; do
             name="$(basename "$tgz" | sed -E 's/(.*)-([0-9].*)\.tgz/\1/')"
             ver="$(basename "$tgz" | sed -E 's/(.*)-([0-9].*)\.tgz/\2/')"

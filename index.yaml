@@ -1,5 +1,45 @@
 apiVersion: v1
 entries:
+  prowlarr:
+  - annotations:
+      artifacthub.io/licenses: MIT
+      artifacthub.io/links.home: https://someadmin.com/helm-charts/prowlarr
+      artifacthub.io/links.logo: https://someadmin.com/images/someadmin-logo.png
+      artifacthub.io/links.maintainers: https://someadmin.com/helm-charts
+      artifacthub.io/links.source: https://github.com/someadmin-org/helm-charts/tree/main/charts/prowlarr
+      artifacthub.io/operator: "false"
+    apiVersion: v2
+    appVersion: 2.0.5
+    created: "2025-09-26T11:55:53.574173703Z"
+    description: Prowlarr is a indexer manager/proxy built on the popular arr .net/reactjs
+      base stack to integrate with your various PVR apps. Prowlarr supports both Torrent
+      Trackers and Usenet Indexers. It integrates seamlessly with Sonarr, Radarr,
+      Lidarr, and Readarr offering complete management of your indexers with no per
+      app Indexer setup required (we do it all).
+    digest: 9723288bb472b0ce71d35cda224de060d85fd71233bca988a751d9835cfdb34d
+    home: https://someadmin.com/helm-charts/prowlarr
+    icon: https://someadmin.com/images/someadmin-logo.png
+    keywords:
+    - prowlarr
+    - nzb
+    - usenet
+    - indexer
+    - download
+    - someadmin
+    kubeVersion: '>=1.19.0-0'
+    maintainers:
+    - email: contact@someadmin.com
+      name: someadmin
+    name: prowlarr
+    sources:
+    - https://github.com/someadmin-org/helm-charts
+    - https://prowlarr.com/
+    - https://github.com/Prowlarr/Prowlarr
+    - https://docs.linuxserver.io/images/docker-prowlarr/
+    type: application
+    urls:
+    - https://github.com/someadmin-org/helm-charts/releases/download/prowlarr-1.0.0/prowlarr-1.0.0.tgz
+    version: 1.0.0
   sabnzbd:
   - annotations:
       artifacthub.io/licenses: MIT
@@ -33,4 +73,4 @@ entries:
     urls:
     - https://github.com/someadmin-org/helm-charts/releases/download/sabnzbd-1.0.0/sabnzbd-1.0.0.tgz
     version: 1.0.0
-generated: "2025-09-26T10:15:04.867732868Z"
+generated: "2025-09-26T11:55:53.728275818Z"

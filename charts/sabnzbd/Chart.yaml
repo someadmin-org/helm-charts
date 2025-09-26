@@ -1,0 +1,28 @@
+apiVersion: v2
+name: sabnzbd
+description: A Helm chart for Kubernetes to install sabnzbd
+appVersion: "4.5.3"
+version: 1.0.0
+kubeVersion: ">=1.19.0-0"
+home: https://someadmin.com/helm-charts/sabnzbd
+icon: https://someadmin.com/images/someadmin-logo.png
+sources:
+  - https://github.com/someadmin-org/helm-charts
+  - https://sabnzbd.org/
+maintainers:
+  - name: someadmin
+    email: contact@someadmin.com
+type: application
+keywords:
+  - sabnzbd
+  - nzb
+  - usenet
+  - download
+  - someadmin
+annotations:
+  "artifacthub.io/operator": "false"
+  "artifacthub.io/licenses": "MIT"
+  "artifacthub.io/links.logo": https://someadmin.com/images/someadmin-logo.png
+  "artifacthub.io/links.home": https://someadmin.com/helm-charts/sabnzbd
+  "artifacthub.io/links.maintainers": https://someadmin.com/helm-charts
+  "artifacthub.io/links.source": "https://github.com/someadmin-org/helm-charts/tree/main/charts/sabnzbd"

@@ -4,6 +4,10 @@ on:
   pull_request:
   push:
 
+permissions:
+  contents: write
+  packages: write
+
 jobs:
   lint:
     runs-on: ubuntu-latest

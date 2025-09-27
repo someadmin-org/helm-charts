@@ -46,11 +46,9 @@ securityContext:
 
 service:
   type: ClusterIP
-  ports:
-    - port: 8096
-      targetPort: http
-      protocol: TCP
-      name: http
+  port: 8096
+  additionalPorts:
+    {}
     # - port: 8920
     #   targetPort: https
     #   protocol: TCP

@@ -10,6 +10,47 @@ entries:
       artifacthub.io/operator: "false"
     apiVersion: v2
     appVersion: 10.10.7
+    created: "2025-09-27T21:28:00.194010198Z"
+    description: Jellyfin is a Free Software Media System that puts you in control
+      of managing and streaming your media. It is an alternative to the proprietary
+      Emby and Plex, to provide media from a dedicated server to end-user devices
+      via multiple apps.
+    digest: cec108446e37b846fc6124041a13d86ed21eef8727561eeb08eedee6781c5711
+    home: https://someadmin.com/helm-charts/jellyfin
+    icon: https://someadmin.com/images/someadmin-logo.png
+    keywords:
+    - jellyfin
+    - nzb
+    - usenet
+    - indexer
+    - download
+    - someadmin
+    - media
+    - server
+    - streaming
+    kubeVersion: '>=1.19.0-0'
+    maintainers:
+    - email: contact@someadmin.com
+      name: someadmin
+    name: jellyfin
+    sources:
+    - https://github.com/someadmin-org/helm-charts
+    - https://jellyfin.video/
+    - https://github.com/jellyfin/jellyfin
+    - https://docs.linuxserver.io/images/docker-jellyfin/
+    type: application
+    urls:
+    - https://github.com/someadmin-org/helm-charts/releases/download/jellyfin-1.0.1/jellyfin-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/licenses: MIT
+      artifacthub.io/links.home: https://someadmin.com/helm-charts/jellyfin
+      artifacthub.io/links.logo: https://someadmin.com/images/someadmin-logo.png
+      artifacthub.io/links.maintainers: https://someadmin.com/helm-charts
+      artifacthub.io/links.source: https://github.com/someadmin-org/helm-charts/tree/main/charts/jellyfin
+      artifacthub.io/operator: "false"
+    apiVersion: v2
+    appVersion: 10.10.7
     created: "2025-09-27T20:46:05.865203433Z"
     description: Jellyfin is a Free Software Media System that puts you in control
       of managing and streaming your media. It is an alternative to the proprietary
@@ -231,4 +272,4 @@ entries:
     urls:
     - https://github.com/someadmin-org/helm-charts/releases/download/sabnzbd-1.0.0/sabnzbd-1.0.0.tgz
     version: 1.0.0
-generated: "2025-09-27T20:46:05.865214854Z"
+generated: "2025-09-27T21:28:00.194026068Z"

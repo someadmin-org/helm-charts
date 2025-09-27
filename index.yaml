@@ -79,6 +79,48 @@ entries:
     urls:
     - https://github.com/someadmin-org/helm-charts/releases/download/prowlarr-1.0.0/prowlarr-1.0.0.tgz
     version: 1.0.0
+  radarr:
+  - annotations:
+      artifacthub.io/licenses: MIT
+      artifacthub.io/links.home: https://someadmin.com/helm-charts/radarr
+      artifacthub.io/links.logo: https://someadmin.com/images/someadmin-logo.png
+      artifacthub.io/links.maintainers: https://someadmin.com/helm-charts
+      artifacthub.io/links.source: https://github.com/someadmin-org/helm-charts/tree/main/charts/radarr
+      artifacthub.io/operator: "false"
+    apiVersion: v2
+    appVersion: 2.0.5
+    created: "2025-09-27T18:20:01.672732099Z"
+    description: Radarr is a movie collection manager for Usenet and BitTorrent users.
+      It can monitor multiple RSS feeds for new movies and will interface with clients
+      and indexers to grab, sort, and rename them. It can also be configured to automatically
+      upgrade the quality of existing files in the library when a better quality format
+      becomes available. Note that only one type of a given movie is supported. If
+      you want both a 4k version and 1080p version of a given movie you will need
+      multiple instances.
+    digest: 7de74c1b6b009cb4905e4b2f002a331e55f4bcfc9504404bf40112cc675512d4
+    home: https://someadmin.com/helm-charts/radarr
+    icon: https://someadmin.com/images/someadmin-logo.png
+    keywords:
+    - radarr
+    - nzb
+    - usenet
+    - indexer
+    - download
+    - someadmin
+    kubeVersion: '>=1.19.0-0'
+    maintainers:
+    - email: contact@someadmin.com
+      name: someadmin
+    name: radarr
+    sources:
+    - https://github.com/someadmin-org/helm-charts
+    - https://radarr.video/
+    - https://github.com/Radarr/Radarr
+    - https://docs.linuxserver.io/images/docker-radarr/
+    type: application
+    urls:
+    - https://github.com/someadmin-org/helm-charts/releases/download/radarr-1.0.0/radarr-1.0.0.tgz
+    version: 1.0.0
   sabnzbd:
   - annotations:
       artifacthub.io/licenses: MIT
@@ -147,4 +189,4 @@ entries:
     urls:
     - https://github.com/someadmin-org/helm-charts/releases/download/sabnzbd-1.0.0/sabnzbd-1.0.0.tgz
     version: 1.0.0
-generated: "2025-09-27T13:44:59.678843979Z"
+generated: "2025-09-27T18:20:01.672747617Z"

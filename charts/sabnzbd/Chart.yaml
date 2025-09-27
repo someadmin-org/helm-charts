@@ -1,8 +1,8 @@
 apiVersion: v2
 name: sabnzbd
-description: A Helm chart for Kubernetes to install sabnzbd
+description: Sabnzbd makes Usenet as simple and streamlined as possible by automating everything we can. All you have to do is add an .nzb. SABnzbd takes over from there, where it will be automatically downloaded, verified, repaired, extracted and filed away with zero human interaction.
 appVersion: "4.5.3"
-version: 1.0.0
+version: 1.0.1
 kubeVersion: ">=1.19.0-0"
 home: https://someadmin.com/helm-charts/sabnzbd
 icon: https://someadmin.com/images/someadmin-logo.png

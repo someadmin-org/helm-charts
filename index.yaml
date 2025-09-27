@@ -1,5 +1,47 @@
 apiVersion: v1
 entries:
+  jellyfin:
+  - annotations:
+      artifacthub.io/licenses: MIT
+      artifacthub.io/links.home: https://someadmin.com/helm-charts/jellyfin
+      artifacthub.io/links.logo: https://someadmin.com/images/someadmin-logo.png
+      artifacthub.io/links.maintainers: https://someadmin.com/helm-charts
+      artifacthub.io/links.source: https://github.com/someadmin-org/helm-charts/tree/main/charts/jellyfin
+      artifacthub.io/operator: "false"
+    apiVersion: v2
+    appVersion: 10.10.7
+    created: "2025-09-27T20:46:05.865203433Z"
+    description: Jellyfin is a Free Software Media System that puts you in control
+      of managing and streaming your media. It is an alternative to the proprietary
+      Emby and Plex, to provide media from a dedicated server to end-user devices
+      via multiple apps.
+    digest: f6f5f1f1fde3d061bb0912a12c9b2c170e5ce39fcaf59c2fa985af41e343cb6e
+    home: https://someadmin.com/helm-charts/jellyfin
+    icon: https://someadmin.com/images/someadmin-logo.png
+    keywords:
+    - jellyfin
+    - nzb
+    - usenet
+    - indexer
+    - download
+    - someadmin
+    - media
+    - server
+    - streaming
+    kubeVersion: '>=1.19.0-0'
+    maintainers:
+    - email: contact@someadmin.com
+      name: someadmin
+    name: jellyfin
+    sources:
+    - https://github.com/someadmin-org/helm-charts
+    - https://jellyfin.video/
+    - https://github.com/jellyfin/jellyfin
+    - https://docs.linuxserver.io/images/docker-jellyfin/
+    type: application
+    urls:
+    - https://github.com/someadmin-org/helm-charts/releases/download/jellyfin-1.0.0/jellyfin-1.0.0.tgz
+    version: 1.0.0
   prowlarr:
   - annotations:
       artifacthub.io/licenses: MIT
@@ -189,4 +231,4 @@ entries:
     urls:
     - https://github.com/someadmin-org/helm-charts/releases/download/sabnzbd-1.0.0/sabnzbd-1.0.0.tgz
     version: 1.0.0
-generated: "2025-09-27T18:20:01.672747617Z"
+generated: "2025-09-27T20:46:05.865214854Z"

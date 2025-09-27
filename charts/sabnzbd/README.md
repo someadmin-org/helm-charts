@@ -1,268 +1,74 @@
-# SABnzbd Helm Chart
-
-A Helm chart for deploying SABnzbd, a free and easy binary newsreader, on Kubernetes.
-
-## Overview
-
-SABnzbd is an Open Source Binary Newsreader written in Python. It's totally free, incredibly easy to use, and works practically everywhere. SABnzbd makes Usenet as simple and streamlined as possible by automating everything we can.
-
-This Helm chart deploys SABnzbd on a Kubernetes cluster using the Helm package manager.
-
-## Prerequisites
-
-- Kubernetes 1.19+
-- Helm 3.0+
-- A persistent volume provisioner (if using persistent storage)
-
-## Installation
-
-### Add the Helm Repository
-
-```bash
-helm repo add someadmin https://someadmin-org.github.io/helm-charts
-helm repo update
-```
-
-### Install the Chart
-
-```bash
-helm install sabnzbd someadmin/sabnzbd
-```
-
-To install with custom values:
-
-```bash
-helm install sabnzbd someadmin/sabnzbd -f values.yaml
-```
-
-## Configuration
-
-The following table lists the configurable parameters and their default values:
-
-### Image Configuration
-
-| Parameter          | Description              | Default                       |
-| ------------------ | ------------------------ | ----------------------------- |
-| `image.repository` | SABnzbd image repository | `lscr.io/linuxserver/sabnzbd` |
-| `image.pullPolicy` | Image pull policy        | `IfNotPresent`                |
-| `image.tag`        | Image tag                | `latest`                      |
-| `imagePullSecrets` | Image pull secrets       | `[]`                          |
-
-### Service Account
-
-| Parameter                    | Description                                | Default |
-| ---------------------------- | ------------------------------------------ | ------- |
-| `serviceAccount.create`      | Create a service account                   | `false` |
-| `serviceAccount.automount`   | Auto-mount service account API credentials | `true`  |
-| `serviceAccount.annotations` | Service account annotations                | `{}`    |
-| `serviceAccount.name`        | Service account name                       | `""`    |
-
-### Pod Configuration
-
-| Parameter            | Description                | Default |
-| -------------------- | -------------------------- | ------- |
-| `podAnnotations`     | Pod annotations            | `{}`    |
-| `podLabels`          | Pod labels                 | `{}`    |
-| `podSecurityContext` | Pod security context       | `{}`    |
-| `securityContext`    | Container security context | `{}`    |
-
-### Service Configuration
-
-| Parameter             | Description         | Default     |
-| --------------------- | ------------------- | ----------- |
-| `service.type`        | Service type        | `ClusterIP` |
-| `service.port`        | Service port        | `8080`      |
-| `service.annotations` | Service annotations | `{}`        |
-| `service.labels`      | Service labels      | `{}`        |
-
-### Ingress Configuration
-
-| Parameter             | Description                 | Default         |
-| --------------------- | --------------------------- | --------------- |
-| `ingress.enabled`     | Enable ingress              | `false`         |
-| `ingress.className`   | Ingress class name          | `""`            |
-| `ingress.annotations` | Ingress annotations         | `{}`            |
-| `ingress.hosts`       | Ingress hosts configuration | See values.yaml |
-| `ingress.tls`         | Ingress TLS configuration   | `[]`            |
-
-### Health Checks
-
-| Parameter        | Description                   | Default |
-| ---------------- | ----------------------------- | ------- |
-| `livenessProbe`  | Liveness probe configuration  | `{}`    |
-| `readinessProbe` | Readiness probe configuration | `{}`    |
-
-### Resources
-
-| Parameter   | Description                         | Default |
-| ----------- | ----------------------------------- | ------- |
-| `resources` | CPU/Memory resource requests/limits | `{}`    |
-
-### Environment Variables
-
-| Parameter | Description                                              | Default         |
-| --------- | -------------------------------------------------------- | --------------- |
-| `env`     | Additional environment variables                         | See values.yaml |
-| `envFrom` | Additional environment variables from ConfigMaps/Secrets | `[]`            |
-
-### Storage
-
-| Parameter                 | Description                    | Default             |
-| ------------------------- | ------------------------------ | ------------------- |
-| `persistence.accessModes` | Persistent volume access modes | `["ReadWriteOnce"]` |
-| `persistence.size`        | Persistent volume size         | `1Gi`               |
-| `persistence.annotations` | Persistent volume annotations  | `{}`                |
-| `persistence.labels`      | Persistent volume labels       | `{}`                |
-
-### Additional Volumes
-
-| Parameter      | Description              | Default |
-| -------------- | ------------------------ | ------- |
-| `volumes`      | Additional volumes       | `[]`    |
-| `volumeMounts` | Additional volume mounts | `[]`    |
-
-### Scheduling
-
-| Parameter      | Description   | Default |
-| -------------- | ------------- | ------- |
-| `nodeSelector` | Node selector | `{}`    |
-| `tolerations`  | Tolerations   | `[]`    |
-| `affinity`     | Affinity      | `{}`    |
-
-## Usage Examples
-
-### Basic Installation
-
-```bash
-helm install sabnzbd someadmin/sabnzbd
-```
-
-### Installation with Ingress
-
-```yaml
-# values.yaml
-ingress:
-  enabled: true
-  className: "nginx"
-  annotations:
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
-  hosts:
-    - host: sabnzbd.example.com
-      paths:
-        - path: /
-          pathType: Prefix
-  tls:
-    - secretName: sabnzbd-tls
-      hosts:
-        - sabnzbd.example.com
-```
-
-```bash
-helm install sabnzbd someadmin/sabnzbd -f values.yaml
-```
-
-### Installation with Custom Storage
-
-```yaml
-# values.yaml
-persistence:
-  size: 50Gi
-  storageClass: "fast-ssd"
-
-resources:
-  requests:
-    memory: "512Mi"
-    cpu: "200m"
-  limits:
-    memory: "2Gi"
-    cpu: "1000m"
-```
-
-### Installation with Custom Environment
-
-```yaml
-# values.yaml
-env:
-  - name: PUID
-    value: "1001"
-  - name: PGID
-    value: "1001"
-  - name: TZ
-    value: "America/New_York"
-  - name: UMASK_SET
-    value: "022"
-```
-
-## Accessing SABnzbd
-
-After installation, you can access SABnzbd using one of the following methods:
-
-### Port Forward (for testing)
-
-```bash
-kubectl port-forward service/sabnzbd 8080:8080
-```
-
-Then open your browser to `http://localhost:8080`
-
-### Ingress (recommended for production)
-
-Configure the ingress as shown in the examples above, then access via your configured hostname.
-
-### LoadBalancer or NodePort
-
-Set the service type to `LoadBalancer` or `NodePort` and access via the external IP or node IP.
-
-## Upgrading
-
-To upgrade the chart:
-
-```bash
-helm upgrade sabnzbd someadmin/sabnzbd
-```
-
-## Uninstalling
-
-To uninstall the chart:
-
-```bash
-helm uninstall my-sabnzbd
-```
-
-## Troubleshooting
-
-### Common Issues
-
-1. **Pod not starting**: Check if the persistent volume is available and properly configured
-2. **Permission issues**: Ensure PUID and PGID environment variables are set correctly
-3. **Ingress not working**: Verify ingress controller is installed and configured properly
-
-### Debug Commands
-
-```bash
-# Check pod status
-kubectl get pods -l app.kubernetes.io/name=sabnzbd
-
-# Check pod logs
-kubectl logs -l app.kubernetes.io/name=sabnzbd
-
-# Check persistent volume claims
-kubectl get pvc
-
-# Describe pod for detailed information
-kubectl describe pod <pod-name>
-```
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This chart is licensed under the MIT License. See the LICENSE file for details.
-
-## Links
-
-- [SABnzbd Official Website](https://sabnzbd.org/)
-- [LinuxServer SABnzbd Docker Image](https://docs.linuxserver.io/images/docker-sabnzbd)
-- [Chart Repository](https://github.com/someadmin-org/helm-charts)
+# sabnzbd
+
+![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.5.3](https://img.shields.io/badge/AppVersion-4.5.3-informational?style=flat-square)
+
+![Prowlarr](https://sabnzbd.org/images/logo-full.svg)
+
+Sabnzbd makes Usenet as simple and streamlined as possible by automating everything we can. All you have to do is add an .nzb. SABnzbd takes over from there, where it will be automatically downloaded, verified, repaired, extracted and filed away with zero human interaction.
+
+**Homepage:** <https://someadmin.com/helm-charts/sabnzbd>
+
+## Maintainers
+
+| Name | Email | Url |
+| ---- | ------ | --- |
+| someadmin | <contact@someadmin.com> |  |
+
+## Source Code
+
+* <https://github.com/someadmin-org/helm-charts>
+* <https://sabnzbd.org/>
+
+## Requirements
+
+Kubernetes: `>=1.19.0-0`
+
+## Values
+
+| Key | Type | Default | Description |
+|-----|------|---------|-------------|
+| affinity | object | `{}` |  |
+| envFrom | list | `[]` |  |
+| env[0].name | string | `"PUID"` |  |
+| env[0].value | string | `"1000"` |  |
+| env[1].name | string | `"PGID"` |  |
+| env[1].value | string | `"1000"` |  |
+| env[2].name | string | `"TZ"` |  |
+| env[2].value | string | `"Etc/UTC"` |  |
+| fullnameOverride | string | `""` |  |
+| image.pullPolicy | string | `"IfNotPresent"` |  |
+| image.repository | string | `"lscr.io/linuxserver/sabnzbd"` |  |
+| image.tag | string | `"latest"` |  |
+| imagePullSecrets | list | `[]` |  |
+| ingress.annotations | object | `{}` |  |
+| ingress.className | string | `""` |  |
+| ingress.enabled | bool | `false` |  |
+| ingress.hosts[0].host | string | `"chart-example.local"` |  |
+| ingress.hosts[0].paths[0].path | string | `"/"` |  |
+| ingress.hosts[0].paths[0].pathType | string | `"ImplementationSpecific"` |  |
+| ingress.tls | list | `[]` |  |
+| initContainers | string | `nil` |  |
+| livenessProbe | object | `{}` |  |
+| nameOverride | string | `""` |  |
+| nodeSelector | object | `{}` |  |
+| persistence.accessModes[0] | string | `"ReadWriteOnce"` |  |
+| persistence.annotations | object | `{}` |  |
+| persistence.labels | object | `{}` |  |
+| persistence.size | string | `"1Gi"` |  |
+| podAnnotations | object | `{}` |  |
+| podLabels | object | `{}` |  |
+| podSecurityContext | object | `{}` |  |
+| readinessProbe | object | `{}` |  |
+| resources | object | `{}` |  |
+| securityContext | object | `{}` |  |
+| service.annotations | object | `{}` |  |
+| service.labels | object | `{}` |  |
+| service.port | int | `8080` |  |
+| service.type | string | `"ClusterIP"` |  |
+| serviceAccount.annotations | object | `{}` |  |
+| serviceAccount.automount | bool | `true` |  |
+| serviceAccount.create | bool | `false` |  |
+| serviceAccount.name | string | `""` |  |
+| tolerations | list | `[]` |  |
+| volumeMounts | list | `[]` |  |
+| volumes | list | `[]` |  |

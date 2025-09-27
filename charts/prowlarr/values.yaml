@@ -12,6 +12,11 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+initContainers:
+  # - name: init-myservice
+  #   image: busybox
+  #   command: ['sh', '-c', 'echo The app is running! && sleep 3600']
+
 serviceAccount:
   # Specifies whether a service account should be created
   create: false

@@ -1,6 +1,10 @@
 # jellyfin
 
+<<<<<<< HEAD
 ![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 10.10.7](https://img.shields.io/badge/AppVersion-10.10.7-informational?style=flat-square)
+=======
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 10.10.7](https://img.shields.io/badge/AppVersion-10.10.7-informational?style=flat-square)
+>>>>>>> main
 
 ![Jellyfin](https://raw.githubusercontent.com/jellyfin/jellyfin-ux/master/branding/SVG/banner-logo-solid.svg?sanitize=true)
 
@@ -63,10 +67,19 @@ Kubernetes: `>=1.19.0-0`
 | readinessProbe | object | `{}` |  |
 | resources | object | `{}` |  |
 | securityContext | object | `{}` |  |
+<<<<<<< HEAD
 | service.additionalPorts | object | `{}` |  |
 | service.annotations | object | `{}` |  |
 | service.labels | object | `{}` |  |
 | service.port | int | `8096` |  |
+=======
+| service.annotations | object | `{}` |  |
+| service.labels | object | `{}` |  |
+| service.ports[0].name | string | `"http"` |  |
+| service.ports[0].port | int | `8096` |  |
+| service.ports[0].protocol | string | `"TCP"` |  |
+| service.ports[0].targetPort | string | `"http"` |  |
+>>>>>>> main
 | service.type | string | `"ClusterIP"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.automount | bool | `true` |  |

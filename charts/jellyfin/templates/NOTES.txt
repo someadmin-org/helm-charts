@@ -40,11 +40,11 @@ Brought to you by https://someadmin.com
 
   export SERVICE_IP=$(kubectl get svc --namespace {{ .Release.Namespace }} {{ include "jellyfin.fullname" . }} --template "{{"{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}"}}")
   
-  echo "http://$SERVICE_IP:{{ (first .Values.service.ports).port }}"
+  echo http://$SERVICE_IP:{{ .Values.service.port }}
 
 2. Open your browser and navigate to the address above to access Jellyfin.
 
-  http://$SERVICE_IP:{{ (first .Values.service.ports).port }}
+  http://$SERVICE_IP:{{ .Values.service.port }}
 
 {{- else if contains "ClusterIP" .Values.service.type }}
 

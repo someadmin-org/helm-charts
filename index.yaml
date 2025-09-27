@@ -10,6 +10,45 @@ entries:
       artifacthub.io/operator: "false"
     apiVersion: v2
     appVersion: 2.0.5
+    created: "2025-09-27T13:44:59.424039018Z"
+    description: Prowlarr is a indexer manager/proxy built on the popular arr .net/reactjs
+      base stack to integrate with your various PVR apps. Prowlarr supports both Torrent
+      Trackers and Usenet Indexers. It integrates seamlessly with Sonarr, Radarr,
+      Lidarr, and Readarr offering complete management of your indexers with no per
+      app Indexer setup required (we do it all).
+    digest: bc3dec7e4ce16f0472ecbfa719ff7bafe32b7223ec62c6b54a388fd983b40b00
+    home: https://someadmin.com/helm-charts/prowlarr
+    icon: https://someadmin.com/images/someadmin-logo.png
+    keywords:
+    - prowlarr
+    - nzb
+    - usenet
+    - indexer
+    - download
+    - someadmin
+    kubeVersion: '>=1.19.0-0'
+    maintainers:
+    - email: contact@someadmin.com
+      name: someadmin
+    name: prowlarr
+    sources:
+    - https://github.com/someadmin-org/helm-charts
+    - https://prowlarr.com/
+    - https://github.com/Prowlarr/Prowlarr
+    - https://docs.linuxserver.io/images/docker-prowlarr/
+    type: application
+    urls:
+    - https://github.com/someadmin-org/helm-charts/releases/download/prowlarr-1.0.1/prowlarr-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/licenses: MIT
+      artifacthub.io/links.home: https://someadmin.com/helm-charts/prowlarr
+      artifacthub.io/links.logo: https://someadmin.com/images/someadmin-logo.png
+      artifacthub.io/links.maintainers: https://someadmin.com/helm-charts
+      artifacthub.io/links.source: https://github.com/someadmin-org/helm-charts/tree/main/charts/prowlarr
+      artifacthub.io/operator: "false"
+    apiVersion: v2
+    appVersion: 2.0.5
     created: "2025-09-26T11:55:53.574173703Z"
     description: Prowlarr is a indexer manager/proxy built on the popular arr .net/reactjs
       base stack to integrate with your various PVR apps. Prowlarr supports both Torrent
@@ -50,6 +89,41 @@ entries:
       artifacthub.io/operator: "false"
     apiVersion: v2
     appVersion: 4.5.3
+    created: "2025-09-27T13:44:59.678830564Z"
+    description: Sabnzbd makes Usenet as simple and streamlined as possible by automating
+      everything we can. All you have to do is add an .nzb. SABnzbd takes over from
+      there, where it will be automatically downloaded, verified, repaired, extracted
+      and filed away with zero human interaction.
+    digest: bdeb99cb02ec7e5071ef4f814c4ea6544ef5e4e1a71a215c6fabec4339a89a85
+    home: https://someadmin.com/helm-charts/sabnzbd
+    icon: https://someadmin.com/images/someadmin-logo.png
+    keywords:
+    - sabnzbd
+    - nzb
+    - usenet
+    - download
+    - someadmin
+    kubeVersion: '>=1.19.0-0'
+    maintainers:
+    - email: contact@someadmin.com
+      name: someadmin
+    name: sabnzbd
+    sources:
+    - https://github.com/someadmin-org/helm-charts
+    - https://sabnzbd.org/
+    type: application
+    urls:
+    - https://github.com/someadmin-org/helm-charts/releases/download/sabnzbd-1.0.1/sabnzbd-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/licenses: MIT
+      artifacthub.io/links.home: https://someadmin.com/helm-charts/sabnzbd
+      artifacthub.io/links.logo: https://someadmin.com/images/someadmin-logo.png
+      artifacthub.io/links.maintainers: https://someadmin.com/helm-charts
+      artifacthub.io/links.source: https://github.com/someadmin-org/helm-charts/tree/main/charts/sabnzbd
+      artifacthub.io/operator: "false"
+    apiVersion: v2
+    appVersion: 4.5.3
     created: "2025-09-26T10:15:04.867709294Z"
     description: A Helm chart for Kubernetes to install sabnzbd
     digest: ae63d06625741490f6bf0aa2112f9a5d7c53c7e818012a599fb1b5c34981339a
@@ -73,4 +147,4 @@ entries:
     urls:
     - https://github.com/someadmin-org/helm-charts/releases/download/sabnzbd-1.0.0/sabnzbd-1.0.0.tgz
     version: 1.0.0
-generated: "2025-09-26T11:55:53.728275818Z"
+generated: "2025-09-27T13:44:59.678843979Z"

@@ -1,0 +1,31 @@
+apiVersion: v2
+name: sonarr
+description: Sonarr (formerly NZBdrone) is a PVR for usenet and bittorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.
+appVersion: "4.0.5"
+version: 1.0.0
+kubeVersion: ">=1.19.0-0"
+home: https://someadmin.com/helm-charts/sonarr
+icon: https://someadmin.com/images/someadmin-logo.png
+sources:
+  - https://github.com/someadmin-org/helm-charts
+  - https://sonarr.tv/
+  - https://github.com/Sonarr/Sonarr
+  - https://docs.linuxserver.io/images/docker-sonarr/
+maintainers:
+  - name: someadmin
+    email: contact@someadmin.com
+type: application
+keywords:
+  - sonarr
+  - nzb
+  - usenet
+  - indexer
+  - download
+  - someadmin
+annotations:
+  "artifacthub.io/operator": "false"
+  "artifacthub.io/licenses": "MIT"
+  "artifacthub.io/links.logo": https://someadmin.com/images/someadmin-logo.png
+  "artifacthub.io/links.home": https://someadmin.com/helm-charts/sonarr
+  "artifacthub.io/links.maintainers": https://someadmin.com/helm-charts
+  "artifacthub.io/links.source": "https://github.com/someadmin-org/helm-charts/tree/main/charts/sonarr"

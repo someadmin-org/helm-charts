@@ -1,12 +1,12 @@
-# prowlarr
+# sonarr
 
-![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.0.5](https://img.shields.io/badge/AppVersion-2.0.5-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.0.5](https://img.shields.io/badge/AppVersion-4.0.5-informational?style=flat-square)
 
-![Prowlarr](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/prowlarr-banner.png)
+![Sonarr](https://wiki.servarr.com/assets/sonarr/logos/128.png)
 
-Prowlarr is a indexer manager/proxy built on the popular arr .net/reactjs base stack to integrate with your various PVR apps. Prowlarr supports both Torrent Trackers and Usenet Indexers. It integrates seamlessly with Sonarr, Radarr, Lidarr, and Readarr offering complete management of your indexers with no per app Indexer setup required (we do it all).
+Sonarr (formerly NZBdrone) is a PVR for usenet and bittorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.
 
-**Homepage:** <https://someadmin.com/helm-charts/prowlarr>
+**Homepage:** <https://someadmin.com/helm-charts/sonarr>
 
 ## Maintainers
 
@@ -17,9 +17,9 @@ Prowlarr is a indexer manager/proxy built on the popular arr .net/reactjs base s
 ## Source Code
 
 * <https://github.com/someadmin-org/helm-charts>
-* <https://prowlarr.com/>
-* <https://github.com/Prowlarr/Prowlarr>
-* <https://docs.linuxserver.io/images/docker-prowlarr/>
+* <https://sonarr.video/>
+* <https://github.com/Sonarr/Sonarr>
+* <https://docs.linuxserver.io/images/docker-sonarr/>
 
 ## Requirements
 
@@ -39,7 +39,7 @@ Kubernetes: `>=1.19.0-0`
 | env[2].value | string | `"Etc/UTC"` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"lscr.io/linuxserver/prowlarr"` |  |
+| image.repository | string | `"lscr.io/linuxserver/sonarr"` |  |
 | image.tag | string | `"latest"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
@@ -65,7 +65,7 @@ Kubernetes: `>=1.19.0-0`
 | securityContext | object | `{}` |  |
 | service.annotations | object | `{}` |  |
 | service.labels | object | `{}` |  |
-| service.port | int | `9696` |  |
+| service.port | int | `7878` |  |
 | service.type | string | `"ClusterIP"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.automount | bool | `true` |  |
